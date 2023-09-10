@@ -2,26 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer components {
+    .linkMenu {
+        @apply ml-4 hover:text-colorPrimary transition-all relative before:absolute before:w-0 before:transition-all before:hover:transition-all before:hover:w-1/2 before:h-2 before:bg-colorPrimary before:-bottom-2 before:rounded-full;
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    .btn-primary {
+        @apply bg-colorPrimary py-2 px-4 text-white text-base rounded hover:bg-blue-900 transition-all;
+    }
+
+    .category-img {
+        @apply  duration-500 cursor-pointer transition-all flex items-center justify-center p-6 rounded text-white bg-cover bg-no-repeat max-h-full w-full ;
+    }
+
+    .linkCatImg{
+        @apply   relative before:absolute before:w-full before:h-full before:bg-black/60 before:hover:bg-black/0 before:transition-all overflow-hidden rounded
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: "yekanBakh", "sans-serif";
+    font-weight: 500;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 30%;
+    background: white !important;
 }

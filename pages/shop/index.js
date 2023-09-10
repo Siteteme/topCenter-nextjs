@@ -1,23 +1,24 @@
-import HomePage from "@/components/templates/HomePage";
+import Products from "@/components/templates/Products";
 
-function Home({data}) {
+
+function Shop({data}) {
 
     return (
         <div>
-            <HomePage data={data}/>
+            <Products data={data}/>
         </div>
     );
 }
 
 
-export default Home;
+export default Shop;
 
 
 export async function getStaticProps() {
 
     const res = await fetch("http://localhost:4000/data");
-    const json = await res.json();
-    const data = json.slice(0, 8)
+    const data = await res.json();
+
 
 
     return {
