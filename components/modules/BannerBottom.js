@@ -6,7 +6,7 @@ function BannerBottom() {
 
     return <>
 
-        <Image src={Banner} alt="logo01" className="max-w-full"/>
+        <Image src={Banner} alt="logo01" className="w-full"/>
 
     </>
 

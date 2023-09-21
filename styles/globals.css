@@ -3,29 +3,33 @@
 @tailwind utilities;
 
 @layer components {
-    .linkMenu {
-        @apply ml-4 hover:text-colorPrimary transition-all relative before:absolute before:w-0 before:transition-all before:hover:transition-all before:hover:w-1/2 before:h-2 before:bg-colorPrimary before:-bottom-2 before:rounded-full;
-    }
+  .linkMenu {
+    @apply ml-4 hover:text-colorPrimary transition-all relative before:absolute before:w-0 before:transition-all before:hover:transition-all before:hover:w-1/2 before:h-2 before:bg-colorPrimary before:-bottom-2 before:rounded-full;
+  }
 
-    .btn-primary {
-        @apply bg-colorPrimary py-2 px-4 text-white text-base rounded hover:bg-blue-900 transition-all;
-    }
+  .btn-primary {
+    @apply bg-colorPrimary py-2 px-4 text-white text-base rounded hover:bg-blue-900 transition-all;
+  }
 
-    .category-img {
-        @apply  duration-500 cursor-pointer transition-all flex items-center justify-center p-6 rounded text-white bg-cover bg-no-repeat max-h-full w-full ;
-    }
+  .btn-product {
+    @apply bg-[#F8F9FD] py-2 px-4 text-btnBg  text-base rounded hover:bg-blue-900 transition-all;
+  }
 
-    .linkCatImg{
-        @apply   relative before:absolute before:w-full before:h-full before:bg-black/60 before:hover:bg-black/0 before:transition-all overflow-hidden rounded
-    }
+  .category-img {
+    @apply duration-500 cursor-pointer transition-all flex items-center justify-center p-6 rounded text-white bg-cover bg-no-repeat max-h-full w-full;
+  }
+
+  .linkCatImg {
+    @apply relative before:absolute before:w-full before:h-full before:bg-black/60 before:hover:bg-black/0 before:transition-all overflow-hidden rounded;
+  }
 }
 
 body {
-    font-family: "yekanBakh", "sans-serif";
-    font-weight: 500;
+  font-family: "yekanBakh", "sans-serif";
+  font-weight: 500;
 }
 
 .swiper-pagination-bullet-active {
-    opacity: 30%;
-    background: white !important;
+  opacity: 30%;
+  background: white !important;
 }

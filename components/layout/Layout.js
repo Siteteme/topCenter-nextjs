@@ -8,7 +8,9 @@ function Layout({children}) {
     return (
         <section className={yekanBakh.className}>
             <Header/>
-            {children}
+            <section className="min-h-screen">
+                {children}
+            </section>
             <Footer/>
         </section>
     )
