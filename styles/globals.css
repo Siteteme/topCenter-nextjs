@@ -8,11 +8,11 @@
   }
 
   .btn-primary {
-    @apply bg-colorPrimary py-2 px-4 text-white text-base rounded hover:bg-blue-900 transition-all;
+    @apply bg-colorPrimary w-fit py-2 px-4 text-white text-base rounded hover:bg-blue-900 transition-all;
   }
 
   .btn-product {
-    @apply bg-[#F8F9FD] py-2 px-4 text-btnBg  text-base rounded hover:bg-blue-900 transition-all;
+    @apply bg-[#F8F9FD] py-2 px-4 text-btnBg text-base rounded hover:bg-blue-900 transition-all;
   }
 
   .category-img {

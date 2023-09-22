@@ -5,6 +5,7 @@ import CardProduct from "@/components/modules/CardProduct";
 import Brands from "@/components/modules/Brands";
 import BannerBottom from "@/components/modules/BannerBottom";
 import ProductDiscount from "../modules/ProductDiscount";
+import SendEmail from "../modules/SendEmail";
 
 function HomePage({data}) {
   return (
@@ -23,6 +24,7 @@ function HomePage({data}) {
       <TitleSection title="محصولات تخفیف دار" titleArrow="مشاهده همه محصولات" />
 
       <ProductDiscount />
+      <SendEmail />
     </>
   );
 }
