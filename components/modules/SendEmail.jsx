@@ -5,8 +5,15 @@ import Image from "next/image";
 import {useState} from "react";
 
 function SendEmail() {
-  const [value, setValue] = useState("");
-  function clickHandler() {
+  const [name, setName] = useState("");
+  const saveDataHandler = async () => {
+    const res = await fetch("/api/saveDisc", {
+      method: "POST",
+      body: JSON.stringify(name),
+      headers: {"Content-Type": "application/json"},
+    });
+    const data = await res.json();
+    console.log(data);
     const emailValue = document.querySelector("#email-value");
     const message = document.querySelector("#errorSend");
     if (emailValue.value == "") {
@@ -16,18 +23,17 @@ function SendEmail() {
       message.classList.add("text-white");
       message.classList.add("rounded-md");
       message.classList.add("w-1/2");
-   
+      return;
     } else if (emailValue.value.length <= 5) {
       message.innerHTML = "متن شما کوتاه است";
       message.classList.add("bg-blue-500");
       message.classList.add("p-4");
       message.classList.add("text-white");
       message.classList.add("rounded-md");
-
       message.classList.add("w-1/2");
-   
+      return;
     } else {
-      setValue(emailValue.value);
+      setName(emailValue.value);
       message.innerHTML = "مطلب شما با موفقیت ارسال شد";
       message.classList.add("bg-green-500");
       message.classList.add("p-4");
@@ -38,12 +44,11 @@ function SendEmail() {
 
       function removeMessage() {
         message.classList.add("hidden");
-        location.reload(true);
+        // location.reload(true);
       }
       const myTimeout = setTimeout(removeMessage, 3000);
     }
-   
-  }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center h-[600px] my-32 py-24 bg-[url('/images/circle.png')] bg-no-repeat bg-auto bg-center  ">
@@ -73,12 +78,14 @@ function SendEmail() {
           className="md:flex-1 outline-none p-4 rounded-md w-full text-[11px] md:text-base transition-all"
           required
           id="email-value"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <button
           className="btn-primary py-3 flex items-center w-full md:w-fit text-[9px] justify-center md:absolute left-5 transition-all"
           type="submit"
-          onClick={clickHandler}>
-          <span className="text-sm">ارسال ایمیل</span>
+          onClick={saveDataHandler}>
+          <span className="text-sm">بفرست برامون</span>
           <span>
             <Image src={ArrowLeftSmall} alt="arrow" className="mr-2" />
           </span>
