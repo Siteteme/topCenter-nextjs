@@ -1,4 +1,4 @@
-import User from "@/models/User";
+import User from "@/models/Disc";
 import ConnectDB from "@/utils/connectDB";
 
 export default async function handler(req, res) {

@@ -3,7 +3,7 @@ import TitleSection from "@/components/modules/TitleSection";
 
 function Products({data}) {
   return (
-    <>
+    <section className="container m-auto w-[1280px]">
       <TitleSection
         title={"محصولات فروشگاه"}
         titleArrow={"خرید آسان از تاپ سنتر"}
@@ -13,7 +13,7 @@ function Products({data}) {
           <CardProduct key={pro.id} {...pro} />
         ))}
       </div>
-    </>
+    </section>
   );
 }
 

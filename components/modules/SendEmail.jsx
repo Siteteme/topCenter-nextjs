@@ -16,14 +16,14 @@ function SendEmail() {
     console.log(data);
     const emailValue = document.querySelector("#email-value");
     const message = document.querySelector("#errorSend");
-    if (emailValue.value == "") {
+    if (emailValue.value === "") {
       message.innerHTML = "لطفا یک مطلب برای ما ارسال کنید";
       message.classList.add("bg-red-500");
       message.classList.add("p-4");
       message.classList.add("text-white");
       message.classList.add("rounded-md");
       message.classList.add("w-1/2");
-      return;
+      
     } else if (emailValue.value.length <= 5) {
       message.innerHTML = "متن شما کوتاه است";
       message.classList.add("bg-blue-500");
@@ -31,7 +31,7 @@ function SendEmail() {
       message.classList.add("text-white");
       message.classList.add("rounded-md");
       message.classList.add("w-1/2");
-      return;
+      
     } else {
       setName(emailValue.value);
       message.innerHTML = "مطلب شما با موفقیت ارسال شد";
@@ -41,10 +41,9 @@ function SendEmail() {
       message.classList.add("rounded-md");
       message.classList.add("w-1/2");
       message.classList.add("relative");
-
       function removeMessage() {
-        message.classList.add("hidden");
-        // location.reload(true);
+      message.classList.add("hidden");
+        location.reload(true);
       }
       const myTimeout = setTimeout(removeMessage, 3000);
     }

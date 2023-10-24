@@ -2,7 +2,6 @@
 import Heart from "@/components/icons/Heart";
 import Link from "next/link";
 import ArrowBtn from "@/components/icons/ArrowBtn";
-import {useState} from "react";
 
 function CardProduct(props) {
   const {id, title, price, image} = props;

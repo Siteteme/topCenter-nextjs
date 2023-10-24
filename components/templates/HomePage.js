@@ -6,10 +6,12 @@ import Brands from "@/components/modules/Brands";
 import BannerBottom from "@/components/modules/BannerBottom";
 import ProductDiscount from "../modules/ProductDiscount";
 import SendEmail from "../modules/SendEmail";
+import SearchModal from "../modules/SearchModal";
 
 function HomePage({data}) {
   return (
-    <>
+    <main className="container m-auto max-w-[1280px] px-2">
+      <SearchModal />
       <Slider />
       <CategoryImage />
       <TitleSection title="جدیدترین محصولات" titleArrow="مشاهده همه محصولات" />
@@ -25,7 +27,7 @@ function HomePage({data}) {
 
       <ProductDiscount />
       <SendEmail />
-    </>
+    </main>
   );
 }
 

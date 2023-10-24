@@ -7,11 +7,44 @@ import logo from "@/public/images/logo.png";
 import SearchIcon from "@/components/icons/SearchIcon";
 import BagIcon from "@/components/icons/BagIcon";
 import SignUp from "@/components/icons/SignUp";
+import {IoLogOutOutline} from "react-icons/io5";
+
+import {useEffect, useState} from "react";
+import {useRouter} from "next/router";
+import LogOut from "../icons/LogOut";
+
+const serchModalShow = () => {
+  const searchModalDiv = document.getElementById("search-modal");
+  if (searchModalDiv.classList.contains("hidden")) {
+    searchModalDiv.classList.remove("hidden");
+    searchModalDiv.classList.add("block");
+  } else {
+    searchModalDiv.classList.remove("block");
+    searchModalDiv.classList.add("hidden");
+  }
+};
 
 function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    fetch("/api/user")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") setIsLoggedIn(true);
+      });
+  }, []);
+
+  const logOutHandler = async () => {
+    const res = await fetch("/api/auth/logout");
+    const data = await res.json();
+    if (data.status === "success") setIsLoggedIn(true);
+  };
+
   return (
     <>
-      <header className="flex items-center justify-between h-[90px] border-b-2 border-border/25 border-dashed">
+      <header className=" container m-auto max-w-[1280px] px-2 flex items-center justify-between h-[90px] border-b-2 border-border/25 border-dashed">
         <div id="logo">
           <Link href="/">
             <Image
@@ -46,17 +79,29 @@ function Header() {
           </nav>
         </div>
         <div className="flex items-center justify-between">
-          <div className="hover:bg-colorPrimary p-2 stroke-black fill-none transition-all  rounded-full  hover:stroke-white hover:fill-none  ">
+          <div
+            className="hover:bg-colorPrimary p-2 stroke-black fill-none transition-all  rounded-full  hover:stroke-white hover:fill-none  "
+            onClick={serchModalShow}>
             <SearchIcon />
           </div>
           <div className="hover:bg-colorPrimary p-2 stroke-black fill-none transition-all  rounded-full  hover:stroke-white hover:fill-none  ">
             <BagIcon />
           </div>
-          <div className="hover:bg-colorPrimary p-2 stroke-black fill-none transition-all rounded-full  hover:stroke-white hover:fill-none">
-            <Link href="/auth/signup">
-              <SignUp />
-            </Link>
-          </div>
+          {!isLoggedIn ? (
+            <div className="hover:bg-colorPrimary p-2 stroke-black fill-none transition-all rounded-full  hover:stroke-white hover:fill-none">
+              <Link href="/auth/signup">
+                <SignUp />
+              </Link>
+            </div>
+          ) : null}
+
+          {isLoggedIn ? (
+            <div className="hover:bg-colorPrimary p-2 stroke-black fill-none transition-all rounded-full  hover:stroke-white hover:fill-none">
+              <button onClick={logOutHandler} className="flex">
+                <LogOut />
+              </button>
+            </div>
+          ) : null}
         </div>
       </header>
     </>

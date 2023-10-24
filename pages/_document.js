@@ -5,7 +5,7 @@ export default function Document() {
         <Html lang="fa" dir="rtl">
             <Head/>
             <body>
-            <section className="container m-auto max-w-[1280px] px-2">
+            <section className="">
                 <Main/>
                 <NextScript/>
             </section>
